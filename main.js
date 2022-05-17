@@ -58,7 +58,7 @@ function criaElemento(elemento) {
 }
 
 function adicionaEmpresa(nome, avaliacao, msg) {
-    p.innerText += `${nome} - Classificação[${avaliacao}] - ${msg} `;
+    p.innerText += `${nome} - Classificação[${avaliacao}] - ${msg}`+'\r\n';
     divResultado.appendChild(p);
 }
 
