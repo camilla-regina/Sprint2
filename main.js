@@ -17,9 +17,9 @@ empresas.push(empresa2);
 empresas.push(empresa3);
 empresas.push(empresa4);
 
-const empresasJSON = JSON.stringify(empresas);
+localStorage.setItem('dados', JSON.stringify(empresas));
 
-localStorage.setItem('dados', empresasJSON);
+var dados = JSON.parse(localStorage.getItem('dados'));
 
 // ===============================================================
 
@@ -31,24 +31,24 @@ const arrayJSON = localStorage.getItem('dados');
 const arrayNormal = JSON.parse(arrayJSON);
 
 // filter (array)
-const menoresQueCinco = arrayNormal.filter(function(obj) {
-    if(obj.avaliacao < 5) {
+const menoresQueCinco = arrayNormal.filter(function (obj) {
+    if (obj.avaliacao < 5) {
         return obj.nome;
     }
 });
 
-const maioresQueCinco = arrayNormal.filter(function(obj) {
-    if(obj.avaliacao > 5) {
+const maioresQueCinco = arrayNormal.filter(function (obj) {
+    if (obj.avaliacao >= 5) {
         return obj.nome;
     }
 });
 
 // iteração sobre cada objeto do array
-maioresQueCinco.forEach(function(obj) {
+maioresQueCinco.forEach(function (obj) {
     adicionaEmpresa(obj.nome, obj.avaliacao, 'maior que 5');
 });
 
-menoresQueCinco.forEach(function(obj) {
+menoresQueCinco.forEach(function (obj) {
     adicionaEmpresa(obj.nome, obj.avaliacao, 'menor que 5');
 });
 
@@ -58,15 +58,14 @@ function criaElemento(elemento) {
 }
 
 function adicionaEmpresa(nome, avaliacao, msg) {
-    p.innerText += `${nome} - Classificação[${avaliacao}] - ${msg}`;
-    
+    p.innerText += `${nome} - Classificação[${avaliacao}] - ${msg} `;
     divResultado.appendChild(p);
 }
 
 // localStorage.clear()
 
-// function limparCampos() {
-//     p.innerText = '';
-// }
+function limparCampos() {
+    p.innerText = '';
+}
 
 // limparCampos()
