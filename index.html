@@ -12,18 +12,33 @@
 </head>
 
 <body>
-  <div class="resultado"></div>
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      Filtros de avaliações
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
+  <section class="container-fluid">
+    <div class="row justify-content-center my-5 pb-5">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Filtros de avaliações
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">
+            <button onclick="
+            p.innerText = '';maioresQueCinco.forEach(function (obj) {
+              adicionaEmpresa(obj.nome, obj.avaliacao, 'maior que 5');});">Avaliações negativas</button>
+          </a>
+          <a class="dropdown-item" href="#">
+            <button onclick="
+            p.innerText = '';menoresQueCinco.forEach(function (obj) {
+              adicionaEmpresa(obj.nome, obj.avaliacao, 'menor que 5');});">Avaliações positivas</button>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
+    <section class="row">
+      <div class="resultado" id="empresas">
+        
+      </div>
+    </section>
+  </section>
 
   <script src="main.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
